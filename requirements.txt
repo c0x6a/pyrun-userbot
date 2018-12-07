@@ -1,0 +1,4 @@
+Pillow==5.3.0
+Pygments==2.3.0
+Telethon==1.4.3
+cryptg==0.1.0.7
