@@ -1,7 +1,10 @@
 PyRun Userbot
 =============
 
-Userbot for telegram than runs Python code
+Userbot for telegram than runs Python code, made with
+`Telethon <https://github.com/LonamiWebs/Telethon>`_.
+
+It uses Python3.7 to work.
 
 
 Installation:
@@ -23,12 +26,22 @@ You will need to add that font to your O.S. too.
 Usage:
 ------
 
-When you have your userbot runing, simply send python code in a message
+Run it with:
+
+.. code-block::
+
+    python bot/userbot.py
+
+
+When you have your userbot running, simply send python code in a message
 using the command ``!!py``, for example:
 
 
+.. code-block::
+
     !!py
     print("Hello world")
+
 
 and it would reply to your message with the result of running the code.
 
@@ -38,8 +51,11 @@ and it would reply to your message with the result of running the code.
 You can send the ``img`` parameter to the command if you want to have
 a nice syntax highlighted image of the code, example:
 
+.. code-block::
+
     !!py img
     print("Hello world")
+
 
 and you will get:
 
