@@ -20,6 +20,7 @@ client = TelegramClient("SESSION", api_id, api_hash).start()
 
 
 @client.on(events.NewMessage(outgoing=True, pattern="!!py*"))
+@client.on(events.MessageEdited(outgoing=True, pattern="!!py*"))
 async def python_code_run(event):
     """Receive a message that contains a command (!!py) and Python code
     to run, example:
@@ -48,8 +49,11 @@ async def python_code_run(event):
     argument = command.split()
     if len(argument) > 1 and argument[1] == "img":
         await code_to_image(chat, code_file, code_result, this_folder)
+        await event.delete()
     else:
-        await event.reply(f"**Result:**\n```{code_result}```")
+        source = '\n'.join(chunks)
+        response_string = f"**Python code:**\n```{source}```\n\n**Result:**\n```{code_result}```"
+        await event.edit(response_string)
         subprocess.run([
             "rm",
             f"{this_folder}/{code_file}",
